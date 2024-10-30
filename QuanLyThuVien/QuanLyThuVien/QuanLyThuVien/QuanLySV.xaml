@@ -1,0 +1,157 @@
+﻿<Page x:Class="QuanLyThuVien.QuanLySV"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      xmlns:local="clr-namespace:QuanLyThuVien"
+      mc:Ignorable="d" 
+      Height="600" Width="1100"
+      Title="QuanLySV">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\Lucius\OneDrive - Hanoi University of Industry\Desktop\CNTT01\Thực tập cơ sở ngành\New folder\QuanLyThuVien\QuanLyThuVien\image\library.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Label Foreground="White" Content="Mã sinh viên:" HorizontalAlignment="Left" Margin="707,112,0,0" VerticalAlignment="Top" Width="123" Height="33" x:Name="cbTen" FontSize="16"/>
+        <TextBox x:Name="MaSV1" HorizontalAlignment="Left" Margin="847,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="215" Height="33" VerticalContentAlignment="Center" BorderThickness="0,0,0,0"/>
+        <DataGrid Margin="43,62,0,48" ItemsSource="{Binding DanhSachSV}" AutoGenerateColumns="False" CanUserAddRows="False" Name="datagril" BorderThickness="0,0,0,0" HorizontalAlignment="Left" Width="636">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã sinh viên" Binding="{Binding MaSv, Mode=OneWay}" Width="90"></DataGridTextColumn>
+                <DataGridTextColumn Header="Tài khoản" Binding="{Binding Tk, Mode=OneWay}" Width="90"></DataGridTextColumn>
+                <DataGridTextColumn Header="Mật khẩu" Binding="{Binding Mk, Mode=OneWay}" Width="90"></DataGridTextColumn>
+                <DataGridTextColumn Header="Họ tên" Binding="{Binding HoTen, Mode=OneWay}" Width="110"></DataGridTextColumn>
+                <DataGridTextColumn Header="Lớp" Binding="{Binding MaLop, Mode=OneWay}" Width="70"></DataGridTextColumn>
+                <DataGridTextColumn Header="Số điện thoại" Binding="{Binding Sdt, Mode=OneWay}" Width="90"></DataGridTextColumn>
+                <DataGridTextColumn Header="Tiền nợ" Binding="{Binding TienNo, Mode=OneWay}" Width="*"></DataGridTextColumn>
+            </DataGrid.Columns>
+            <DataGrid.Resources>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                </Style>
+            </DataGrid.Resources>
+        </DataGrid>
+
+        <Button HorizontalAlignment="Left" Margin="790,362,0,0" VerticalAlignment="Top" Height="56" Width="211" Click="Button_Click2">
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <Icon:PackIconMaterial Kind="Delete" Margin="0 0 5 0"/>
+                    <TextBlock Text=" Xóa sinh viên"/>
+                </StackPanel>
+            </Button.Content>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="Padding" Value="10"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#28AEED"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Width="200" Height="40"
+                CornerRadius="20"
+                Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                    HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Button HorizontalAlignment="Left" Margin="790,267,0,0" VerticalAlignment="Top" Height="56" Width="211" Click="Button_Click3">
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <Icon:PackIconMaterial Kind="FolderHidden"/>
+                    <TextBlock Text=" Hiển thị danh sách sinh viên"/>
+                </StackPanel>
+            </Button.Content>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="Padding" Value="10"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#28AEED"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Width="200" Height="40"
+        CornerRadius="20"
+        Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+            HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Button HorizontalAlignment="Left" Margin="790,185,0,0" VerticalAlignment="Top" Height="56" Width="211" Click="Button_Click1">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="Padding" Value="10"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#28AEED"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Width="200" Height="40"
+                        CornerRadius="20"
+                        Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                            HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="🔎 Tìm kiếm sinh viên"/>
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="790,454,0,0" VerticalAlignment="Top" Height="56" Width="211" Click="Button_Click4">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="Padding" Value="10"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#28AEED"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Width="200" Height="40"
+                        CornerRadius="20"
+                        Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                            HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <StackPanel Orientation="Horizontal">
+                <Icon:PackIconMaterial Kind="Refresh" Margin="0 0 5 0"/>
+                <TextBlock Text=" Đặt lại mật khẩu"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</Page>

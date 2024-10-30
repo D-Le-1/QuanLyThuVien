@@ -1,0 +1,137 @@
+﻿<Window x:Class="QuanLyThuVien.SachDaMuon"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:local="clr-namespace:QuanLyThuVien"
+        mc:Ignorable="d"
+        Title="SachDaMuon" Height="467" Width="819" WindowStyle="None"
+        WindowStartupLocation="CenterScreen" AllowsTransparency="true" Background="Transparent">
+    <Border CornerRadius="5" Background="#ffffff" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeft">
+        <Grid Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="HaUI Library" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="SemiBold" Foreground="#4880ff" Height="20" Width="714"/>
+            <Icon:PackIconMaterial Kind="Book" Margin="33,14,0,0" Width="14" Height="14" Foreground="#ff9d00"/>
+            <Icon:PackIconMaterial Kind="Book" Margin="30,18,0,0" Width="14" Height="14" Foreground="#4880ff"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="731,0,0,0" Width="69">
+                <Button x:Name="btnMinimize"                           
+                    BorderThickness="0"
+                    Content="-"
+                    Foreground="White"
+                    FontSize="16"
+                    FontFamily="Montserrat"
+                    Cursor="Hand"
+                    Grid.Column="1"
+                    Click="btnMinimize_Click" Width="35" Height="32">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#28AEED"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#278BEF"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="30" Height="30"
+                                CornerRadius="15"
+                                Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button x:Name="btnClose"                          
+                    BorderThickness="0"
+                    Content="X"
+                    Foreground="White"
+                    FontSize="12"
+                    FontFamily="Montserrat"
+                    Cursor="Hand"
+                    Grid.Column="2"
+                    Click="btnClose_Click" Width="35" Height="32">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#DA34AE"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Red"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="30" Height="30"
+                                CornerRadius="15"
+                                Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Center" Width="818" Grid.Row="1">
+
+                <StackPanel.Background>
+                    <ImageBrush ImageSource="C:\Users\Lucius\OneDrive - Hanoi University of Industry\Desktop\CNTT01\Thực tập cơ sở ngành\New folder\QuanLyThuVien\QuanLyThuVien\image\ke_sach1.jpg" Stretch="UniformToFill"/>
+                </StackPanel.Background>
+
+                <DataGrid Margin="0,68,0,96" ItemsSource="{Binding SachList}" AutoGenerateColumns="False" CanUserAddRows="False" Name="datagril" HorizontalAlignment="Center" Width="800" Height="249" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Họ và tên" Binding="{Binding HoTen, Mode=OneWay}" Width="150"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Lớp" Binding="{Binding DiaChi, Mode=OneWay}" Width="*"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Mã sinh viên" Binding="{Binding MaSv, Mode=OneWay}" Width="*"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Tên sách" Binding="{Binding TenSach, Mode=OneWay}" Width="*"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Ngày mượn" Binding="{Binding NgayMuon, Mode=OneWay}" Width="*"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Ngày trả" Binding="{Binding NgayTra, Mode=OneWay}" Width="*"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Tình trạng" Binding="{Binding TinhTrang, Mode=OneWay}" Width="*"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                    <DataGrid.Resources>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="FontWeight" Value="Bold"></Setter>
+                        </Style>
+                    </DataGrid.Resources>
+                </DataGrid>
+                <Button Content="Quay lại" HorizontalAlignment="Left" Margin="625,-74,0,0" VerticalAlignment="Top" Height="48" Width="150" Click="Button_Click">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                            <Setter Property="Padding" Value="10"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#28AEED"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Width="150" Height="40"
+                    CornerRadius="20"
+                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                        HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <TextBlock x:Name="tienNo1" Foreground="White" FontSize="16" HorizontalAlignment="Left" Margin="24,-390,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="284"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
